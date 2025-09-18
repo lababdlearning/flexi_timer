@@ -1,0 +1,142 @@
+body {
+  background: #f4f6fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 12px;
+}
+h1 {
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24px;
+}
+.flow-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.flow-controls button {
+  font-size: 1rem;
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.flow-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+#flow-canvas {
+  position: relative;
+  min-height: 400px;
+  background: repeating-linear-gradient(0deg, #e9ecf3 0 1px, transparent 1px 40px), repeating-linear-gradient(90deg, #e9ecf3 0 1px, transparent 1px 40px);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 32px 0;
+  overflow-x: auto;
+}
+#connections {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+#steps-container {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+  min-height: 220px;
+}
+.step-node {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 22px 18px 18px 18px;
+  min-width: 220px;
+  max-width: 260px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: grab;
+}
+.step-node.active {
+  border: 2px solid #4f8cff;
+  box-shadow: 0 4px 18px rgba(79,140,255,0.13);
+}
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.step-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #2d3a4a;
+}
+.step-actions button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #888;
+  margin-left: 6px;
+  transition: color 0.2s;
+}
+.step-actions button:hover {
+  color: #e74c3c;
+}
+.step-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.step-fields label {
+  font-size: 0.97rem;
+  color: #555;
+  margin-bottom: 2px;
+}
+.step-fields input, .step-fields select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  background: #f8fafc;
+}
+.step-progress {
+  margin-top: 10px;
+  height: 8px;
+  background: #e9ecf3;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.step-progress-bar {
+  height: 100%;
+  background: #4f8cff;
+  width: 0%;
+  transition: width 0.3s;
+}
+@media (max-width: 900px) {
+  #steps-container {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+  #flow-canvas {
+    min-height: 600px;
+    padding: 24px 0;
+  }
+}

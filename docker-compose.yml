@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  flexi_timer:
+    build: .
+    ports:
+      - "8082:80"
+    container_name: flexi_timer
+    restart: unless-stopped
