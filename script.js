@@ -4,7 +4,7 @@
 const SOUNDS = [
   { name: 'Beep', id: 'beep', file: 'sounds/beep.mp3' },
   { name: 'Chime', id: 'chime', file: 'sounds/chime.mp3' },
-  { name: 'Bell', id: 'bell', file: 'sounds/bell.mp3' }
+  { name: 'Change', id: 'change', file: 'sounds/step_change1.mp3' }
 ];
 
 let steps = [];
